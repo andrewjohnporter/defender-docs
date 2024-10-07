@@ -92,7 +92,7 @@ If your organization has [exclusions defined for Microsoft Defender Antivirus](c
 |---|---|
 | Microsoft Defender platform | Devices are running Microsoft Defender platform `4.18.2211.5` or later. For more information, see [Monthly platform and engine versions](microsoft-defender-antivirus-updates.md#monthly-platform-and-engine-versions). |
 | `DisableLocalAdminMerge` setting | This setting is also known as preventing local list merging. `DisableLocalAdminMerge` must be enabled so that settings configured on a device aren't merged with organization policies, such as settings in Intune. For more information, see [DisableLocalAdminMerge](/windows/client-management/mdm/defender-csp). |
-| Device management | Devices are either managed in Intune only, or are managed with Configuration Manager only. Sense must be enabled. |
+| Device management | Devices are either managed in Intune only, or are managed with Configuration Manager only. Sense must be enabled. Co-managed devices are not supported|
 | Antivirus exclusions | Microsoft Defender Antivirus exclusions are managed in Microsoft Intune or Configuration Manager. For more information, see [Settings for Microsoft Defender Antivirus policy in Microsoft Intune for Windows devices](/mem/intune/protect/antivirus-microsoft-defender-settings-windows). <br/><br/>Functionality to protect Microsoft Defender Antivirus exclusions is enabled on devices. For more information, see [How to determine whether antivirus exclusions are tamper protected on a Windows device](#how-to-determine-whether-antivirus-exclusions-are-tamper-protected-on-a-windows-device). |
 
 > [!NOTE]
@@ -117,9 +117,10 @@ You can use a registry key to determine whether the functionality to protect Mic
    |---|---|---|
    | `6` | (any value) |The device is managed by Intune only. <br/>(*Meets a requirement for exclusions to be tamper protected.*) |
    | `7` | `4` | The device is managed by Configuration Manager. <br/>(*Meets a requirement for exclusions to be tamper protected.*) |
+   | `7` | `3` | The device is co-mamaged by Intune and Configuration Manager. <br/>(*This it not supported for exclusions to be tamper protected.*) |
    | A value other than `6` or `7` | (any value) | The device isn't managed by Intune only or Configuration Manager only. <br/>(*Exclusions aren't tamper protected*.) |
 
-3. To confirm that tamper protection is deployed and that exclusions are tamper protected, check the `TPExclusions` registry key (located at `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Features` or `HKLM\SOFTWARE\Microsoft\Windows Defender\Features`).
+4. To confirm that tamper protection is deployed and that exclusions are tamper protected, check the `TPExclusions` registry key (located at `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Features` or `HKLM\SOFTWARE\Microsoft\Windows Defender\Features`).
 
    | `TPExclusions` | What the value means |
    |---|---|
