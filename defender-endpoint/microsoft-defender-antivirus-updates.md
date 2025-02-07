@@ -70,6 +70,8 @@ You can manage the distribution of updates through one of the following methods:
 
 - [Windows Server Update Service (WSUS)](/mem/configmgr/protect/deploy-use/endpoint-definitions-wsus#to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus)
 - [Microsoft Configuration Manager](/configmgr/sum/understand/software-updates-introduction)
+- Intune
+- Directly from the Internet from Microsoft Update
 - The usual methods you use to deploy Microsoft and Windows updates to endpoints in your network.
 
 For more information, see [Manage the sources for Microsoft Defender Antivirus protection updates](/mem/configmgr/protect/deploy-use/endpoint-definitions-wsus#to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus).
